@@ -15,27 +15,28 @@ const Gamebox = () => {
     if (!frontFace || frontFace === "Gamebox_turnBack")
       setFace({
         frontFace: "Gamebox_turnFace",
-        backFace: "Gamebox_turnBack ",
+        backFace: "Gamebox_turnBack",
       });
     else
       setFace({ frontFace: "Gamebox_turnBack", backFace: "Gamebox_turnFace" });
   };
+  console.log(backFace);
   return (
     <>
       {" "}
       <div className="card">
         <div className={"Gamebox__front " + frontFace}>
-          <h1 className="head">hello</h1>
+          <h1 className="head">New Input Styles</h1>
           <Form />
           <button className="button" onClick={turnCard}>
-            turn
+            Next
           </button>
         </div>
 
         <div className={"Gamebox__back " + backFace}>
           <div
             style={{
-              width: "50%",
+              width: "60%",
               display: "flex",
               flexDirection: "column",
             }}
@@ -76,18 +77,21 @@ const Gamebox = () => {
             <Input
               id="username"
               styles="ModernStyle" // ColorsStyle// ModernStyle
-              label="State"
+              label="Location"
               type="text"
               layout="top"
               placeHolder="Username"
-              VALIDATORS="IS__REQUIRED"
+              VALIDATORS="NAME__VALIDATOR"
               // VALIDATORS="IS__REQUIRED,EMAIL__VALIDATOR"
               // getValue={getValuehandler}
             />
           </div>
-          <button className="button" onClick={turnCard}>
-            turn
-          </button>
+
+          {backFace === "Gamebox_turnBack" && (
+            <button className={"button"} onClick={turnCard}>
+              Back
+            </button>
+          )}
         </div>
       </div>
     </>

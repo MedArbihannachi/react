@@ -1,6 +1,6 @@
 import React from "react";
-import "./InputColorsStyle.scss";
-// import "./InputModernStyle.scss";
+// import "./InputColorsStyle.scss";
+import "./InputModernStyle.scss";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { VALIDATE } from "./INPUT__VALIDATOR";
 import {
