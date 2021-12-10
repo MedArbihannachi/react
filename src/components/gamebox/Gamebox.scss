@@ -1,0 +1,81 @@
+@import "../utilities/css/mixins.scss";
+
+.card {
+  display: flex;
+  width: 400px;
+  height: 400px;
+  @include Center-self;
+  perspective: 1000px;
+}
+.Gamebox {
+  background-color: rgb(255, 255, 255);
+  &__front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    width: 400px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    backface-visibility: hidden;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.673);
+  }
+
+  &__back {
+    display: flex;
+    justify-content: center;
+    // @include Center-self;
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    backface-visibility: hidden;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.673);
+    transform: rotateY(180deg);
+  }
+  &_turnFace {
+    animation: turnFace cubic-bezier(0, 1.06, 0.64, 0.96) 2s forwards;
+  }
+  &_turnBack {
+    animation: turnBack cubic-bezier(0, 1.06, 0.64, 0.96) 2s forwards;
+  }
+}
+
+.button {
+  @include Center-self;
+  top: 90%;
+  width: 30%;
+  height: 10%;
+}
+.head {
+  font-size: 4rem;
+  color: rgb(149, 7, 7);
+
+  position: absolute;
+  @include Center-self;
+  top: 10%;
+
+  background-color: rgba(255, 254, 254, 0.43);
+  z-index: 3;
+}
+
+@keyframes turnFace {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes turnBack {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}

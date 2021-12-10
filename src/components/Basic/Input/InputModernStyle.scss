@@ -1,0 +1,185 @@
+@import "./InputStylesVariables.scss";
+
+.Input {
+  background-color: rgb(255, 255, 255);
+  &__layout {
+    font-size: 3.2rem;
+
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-top: em(1, 3.5);
+    border-radius: em(0.8rem, 3.5rem);
+    background-color: $Input-bg-color;
+
+    @media (max-width: 900px) {
+      font-size: 3rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 2rem;
+    }
+
+    &--field {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      width: 100%;
+      margin: em(0.3rem, 3.5rem);
+      border-radius: em(0.8rem, 3.5rem);
+      background-color: $Input-bg-color;
+    }
+  }
+  &__label {
+    font-size: em(2rem, 3.5rem);
+    font-weight: 400;
+    font-style: oblique;
+    text-align: center;
+    line-height: em(3.4rem, 2.45rem);
+    color: rgba(0, 0, 0, 0.521);
+
+    display: block;
+    position: absolute;
+    top: em(1.2rem, 2rem);
+    left: em(1.5rem, 2rem);
+    background-color: $Input-bg-color;
+
+    transition: all 0.1s ease-in;
+
+    .Input__layout:focus-within & {
+      @include moveLabel($Input-border-default-hover);
+    }
+    &--default {
+      @include moveLabel($Input-label-default);
+    }
+    &--valid,
+    .Input__layout:focus-within &--valid {
+      @include moveLabel($Input-label-valid);
+    }
+
+    &--notValid,
+    .Input__layout:focus-within &--notValid {
+      @include moveLabel($Input-label-notValid);
+
+      &--notRequired,
+      .Input__layout:focus-within &--notRequired {
+        @include moveLabel($Input-label-notRequired);
+      }
+    }
+  }
+
+  &__field {
+    font-size: em(1.7rem, 3.5rem);
+    text-align: left;
+    color: $Input-text-color;
+    // font-weight: 1px;
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.146);
+
+    justify-self: center;
+    width: 100%;
+    flex: 1 em(5rem, 1.7rem);
+    padding: em(0.5rem, 1.7rem) em(0.5rem, 1.7rem) 0px em(1.2rem, 1.7rem);
+    border-radius: em(0.8rem, 1.7rem);
+    background-color: $Input-bg-color;
+
+    @include border-outline-bgColor(
+      $Input-border-default,
+      $Input-outline-default,
+      em(0.3rem, 2rem)
+    );
+    transition: all 0.25s;
+
+    &:hover {
+      @include border-outline-bgColor(
+        $Input-border-default-hover,
+        $Input-outline-default-hover,
+        em(0.3rem, 2rem)
+      );
+    }
+
+    &:focus {
+      @include border-outline-bgColor(
+        $Input-border-default-focus,
+        $Input-outline-default-focus,
+        em(0.2rem, 2rem)
+      );
+    }
+
+    &--Valid {
+      @include border-outline-bgColor(
+        $Input-border-valid,
+        $Input-outline-valid,
+        em(0.3rem, 2rem)
+      );
+
+      &:hover {
+        @include border-outline-bgColor(
+          $Input-border-valid-hover,
+          $Input-outline-valid-hover,
+          em(0.3rem, 2rem)
+        );
+      }
+      &:focus {
+        @include border-outline-bgColor(
+          $Input-border-valid-focus,
+          $Input-outline-valid-focus,
+          em(0.2rem, 2rem)
+        );
+      }
+    }
+    &--notValid {
+      @include border-outline-bgColor(
+        $Input-border-notValid,
+        $Input-outline-notValid,
+        em(0.3rem, 2rem)
+      );
+
+      &:hover {
+        @include border-outline-bgColor(
+          $Input-border-notValid-hover,
+          $Input-outline-notValid-hover,
+          em(0.3rem, 2rem)
+        );
+      }
+
+      &:focus {
+        @include border-outline-bgColor(
+          $Input-border-notValid-focus,
+          $Input-outline-notValid-focus,
+          em(0.2rem, 2rem)
+        );
+      }
+      &-notRequired {
+        @include border-outline-bgColor(
+          $Input-border-notValid-notRequired,
+          $Input-outline-notValid-notRequired,
+          em(0.3rem, 2rem)
+        );
+
+        &:hover {
+          @include border-outline-bgColor(
+            $Input-border-notValid-notRequired-hover,
+            $Input-outline-notValid-notRequired-hover,
+            em(0.3rem, 2rem)
+          );
+        }
+        &:focus {
+          @include border-outline-bgColor(
+            $Input-border-notValid-notRequired-focus,
+            $Input-outline-notValid-notRequired-focus,
+            em(0.2rem, 2rem)
+          );
+        }
+      }
+    }
+  }
+  &__message--notValid {
+    font-size: em(1.3rem, 3.5rem);
+    font-style: italic;
+    font-weight: 400;
+    color: rgb(233, 8, 8);
+
+    margin: em(0.5rem, 1rem) em(0.5rem, 1rem) 0px em(0.5rem, 1rem);
+    background-color: $Input-bg-color;
+  }
+}

@@ -1,0 +1,173 @@
+@mixin border-outline-bgColor($color1, $color2, $outline-width, $color3) {
+  border: 1px solid $color1;
+  outline: $outline-width solid $color2;
+  background-color: $color3;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Input {
+  background-color: rgb(255, 255, 255);
+  &__layout {
+    display: flex;
+    width: 100%;
+    font-size: 3.5rem;
+    padding: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+
+    &--top {
+      flex-direction: column;
+    }
+
+    &--right {
+      flex-direction: row-reverse;
+    }
+    &--left {
+      flex-direction: row;
+    }
+    &--bottom {
+      flex-direction: column-reverse;
+    }
+    &--field {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+
+      flex: 1;
+
+      width: 100%;
+    }
+  }
+  &__label {
+    display: block;
+    font-size: 0.6em;
+    font-weight: 600;
+    line-height: 1.7em;
+    padding: 0em 8px;
+    color: rgba(0, 0, 0, 0.715);
+  }
+  &__field {
+    font-size: 2rem;
+    width: 100%;
+
+    padding: 5px 12px;
+    border-radius: 8px;
+    flex: 0 50px;
+
+    @include border-outline-bgColor(
+      rgb(120, 117, 117),
+      rgba(255, 255, 255, 0),
+      3px,
+      rgba(198, 198, 198, 0.159)
+    );
+    transition: all 0.3s;
+
+    &:hover {
+      @include border-outline-bgColor(
+        rgb(3, 140, 253),
+        rgba(3, 140, 253, 0.264),
+        3px,
+        rgba(198, 198, 198, 0.159)
+      );
+    }
+
+    &:focus {
+      @include border-outline-bgColor(
+        rgb(3, 140, 253),
+        rgba(3, 140, 253, 0.472),
+        2px,
+        rgba(3, 140, 253, 0.035)
+      );
+    }
+
+    &--Valid {
+      @include border-outline-bgColor(
+        rgb(6, 200, 29),
+        rgb(255, 255, 255),
+        3px,
+        rgb(255, 255, 255)
+      );
+
+      &:hover {
+        @include border-outline-bgColor(
+          rgb(0, 152, 69),
+          rgba(16, 233, 114, 0.41),
+          3px,
+          rgba(255, 255, 255, 0.319)
+        );
+      }
+      &:focus {
+        @include border-outline-bgColor(
+          rgba(13, 178, 13, 0.986),
+          rgb(3, 128, 3),
+          2px,
+          rgba(16, 233, 113, 0.729)
+        );
+      }
+    }
+    &--notValid {
+      @include border-outline-bgColor(
+        rgb(245, 62, 193),
+        rgb(255, 255, 255),
+        3px,
+        rgba(255, 0, 212, 0.076)
+      );
+
+      &:hover {
+        @include border-outline-bgColor(
+          rgb(245, 62, 193),
+          rgba(245, 62, 193, 0.264),
+          3px,
+          rgba(255, 133, 235, 0.236)
+        );
+      }
+
+      &:focus {
+        @include border-outline-bgColor(
+          rgb(245, 62, 193),
+          rgba(245, 62, 193, 0.729),
+          2px,
+          rgba(255, 133, 235, 0.465)
+        );
+      }
+      &-notRequired {
+        @include border-outline-bgColor(
+          rgb(255, 136, 0),
+          rgb(255, 255, 255),
+          3px,
+          rgba(255, 200, 0, 0.208)
+        );
+
+        &:hover {
+          @include border-outline-bgColor(
+            rgb(255, 136, 0),
+            rgba(255, 136, 0, 0.291),
+            3px,
+            rgba(255, 200, 0, 0.354)
+          );
+        }
+        &:focus {
+          @include border-outline-bgColor(
+            rgb(255, 136, 0),
+            rgba(255, 136, 0, 0.729),
+            2px,
+            rgba(255, 200, 0, 0.465)
+          );
+        }
+      }
+    }
+  }
+  &__message--notValid {
+    font-style: italic;
+    font-size: 0.65em;
+    font-weight: 400;
+    margin: 5px 5px 0px 5px;
+    color: rgb(233, 8, 8);
+    background-color: rgb(255, 255, 255);
+  }
+}

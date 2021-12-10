@@ -1,0 +1,70 @@
+@mixin border-outline-bgColor($color1, $color2, $outline-width) {
+  border: 0.1rem solid $color1;
+  outline: $outline-width solid $color2;
+}
+
+@mixin moveLabel($color) {
+  font-size: em(1.5rem, 3.5rem);
+  top: em(-1rem, 1.5rem);
+  left: em(1.5rem, 1.5rem);
+  padding: 0 em(0.3rem, 1.5rem);
+  color: $color;
+  background-color: $Input-bg-color;
+}
+
+@function em($rem, $ref: 1) {
+  $result: $rem/$ref * 1em;
+
+  @return $result;
+}
+
+$Input-bg-color: white;
+$Input-text-color: black;
+//********Label Colors*********
+
+$Input-label-default: rgb(0, 0, 0);
+$Input-label-valid: rgb(33, 185, 3);
+$Input-label-notValid: rgb(219, 5, 5);
+$Input-label-notRequired: rgb(205, 109, 0);
+
+//******Border Colors*******
+
+$Input-border-default: rgba(120, 117, 117, 0.423);
+$Input-border-default-hover: rgb(3, 140, 253);
+$Input-border-default-focus: rgb(3, 140, 253);
+
+$Input-border-valid: rgb(6, 200, 29);
+$Input-border-valid-hover: rgb(0, 152, 69);
+$Input-border-valid-focus: rgba(13, 178, 13, 0.986);
+
+$Input-border-notValid: rgb(245, 62, 62);
+$Input-border-notValid-hover: rgb(245, 62, 62);
+$Input-border-notValid-focus: rgb(245, 62, 62);
+
+$Input-border-notValid-notRequired: rgb(255, 136, 0);
+$Input-border-notValid-notRequired-hover: rgb(255, 136, 0);
+$Input-border-notValid-notRequired-focus: rgb(255, 136, 0);
+
+//*******Outline Colors*******
+
+$Input-outline-default: rgba(255, 255, 255, 0);
+$Input-outline-default-hover: rgba(3, 140, 253, 0.264);
+$Input-outline-default-focus: rgba(3, 140, 253, 0.472);
+
+$Input-outline-valid: rgba(255, 255, 255, 0);
+$Input-outline-valid-hover: rgba(16, 233, 114, 0.41);
+$Input-outline-valid-focus: rgb(3, 128, 3);
+
+$Input-outline-notValid: rgba(255, 255, 255, 0);
+$Input-outline-notValid-hover: rgba(255, 0, 0, 0.389);
+$Input-outline-notValid-focus: rgba(245, 62, 62, 0.833);
+
+$Input-outline-notValid-notRequired: rgba(255, 255, 255, 0);
+$Input-outline-notValid-notRequired-hover: rgba(255, 136, 0, 0.291);
+$Input-outline-notValid-notRequired-focus: rgba(255, 136, 0, 0.729);
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
