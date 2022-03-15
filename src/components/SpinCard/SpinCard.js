@@ -27,14 +27,15 @@ const SpinCard = () => {
     <>
       <div className="card">
         <div className={"SpinCard__front " + frontFace}>
-          <h1 className="head">Front</h1>
+          <h1 className="head">Tfadhel si el quality God  </h1>
+          <Form />
           <button className="button" onClick={turnCard}>
             Next
           </button>
         </div>
 
         <div className={"SpinCard__back " + backFace}>
-          <h1 className="head">Back</h1>
+          <h1 className="head">fuck off bitch</h1>
           {backFace === "SpinCard_turnBack" && (
             <button className={"button"} onClick={turnCard}>
               Back

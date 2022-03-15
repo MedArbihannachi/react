@@ -36,9 +36,32 @@ function Form() {
           layout="top"
           placeHolder="Username"
           //   VALIDATORS="IS__REQUIRED,NUMBER__VALIDATOR(1,10)arbi"
+          VALIDATORS="NAME__VALIDATOR"
+          getValue={getValuehandler}
+        />
+        <Input
+          id="username"
+          styles="ModernStyle" // ColorsStyle// ModernStyle
+          label="Email"
+          type="text"
+          layout="top"
+          placeHolder="Username"
+            // VALIDATORS="IS__REQUIRED,NUMBER__VALIDATOR(1,10)arbi"
+          VALIDATORS="IS__REQUIRED,EMAIL__VALIDATOR"
+          getValue={getValuehandler}
+        />
+        <Input
+          id="username"
+          styles="ModernStyle" // ColorsStyle// ModernStyle
+          label="Password"
+          type="password"
+          layout="top"
+          placeHolder="Username"
+            VALIDATORS="IS__REQUIRED,LENGTH__VALIDATOR(8,20)arbi"
           // VALIDATORS="IS__REQUIRED,EMAIL__VALIDATOR"
           getValue={getValuehandler}
         />
+        
       </div>
     </>
   );
